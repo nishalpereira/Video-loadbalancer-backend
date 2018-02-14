@@ -26,7 +26,7 @@ import java.io.FileReader;
 @Produces(MediaType.APPLICATION_JSON)
 public class videoBackend {
 
-	static String csv= "/home/vasanth/realserver-backup-list.csv";
+	static String csv= "/home/videolvs/lvs-scripts/config/realserver-backup-list.csv";
 	BufferedReader br = null;
 	String line = "";
     String cvsSplitBy = ",";
