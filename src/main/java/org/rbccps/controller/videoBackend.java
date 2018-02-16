@@ -1,14 +1,17 @@
 package org.rbccps.controller;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.QueryParam;
-import java.util.*;
-import javax.ws.rs.core.Context;
 
+import java.util.*;
+
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
+
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.io.BufferedReader;
@@ -19,7 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 
-@Path("/register")
+@Path("/videostream")
 @Produces(MediaType.APPLICATION_JSON)
 public class videoBackend {
 
@@ -27,8 +30,8 @@ public class videoBackend {
 	BufferedReader br = null;
 	String line = "";
     String cvsSplitBy = ",";
+    
         @POST
-        @Path("/create_stream")
         public List<String> createStream(@Context HttpHeaders headers, @QueryParam("id") String id, @QueryParam("playurl") String playurl) {
                List<String> responses=new ArrayList<String>();
                 try {
@@ -92,8 +95,8 @@ public class videoBackend {
                
                return responses;
     }
-        @POST
-        @Path("/remove_stream")
+        
+        @DELETE
         public List<String> removeStream(@Context HttpHeaders headers, @QueryParam("id") String id) {
                List<String> responses=new ArrayList<String>();
                 try {
